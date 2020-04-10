@@ -1,17 +1,17 @@
 package com.devijoe.project;
 
-import java.util.PriorityQueue;
-
 public class Main {
 
     public static void main(String[] args) throws Exception {
-	// write your code here
-        Queue <Integer> q = new Queue<>();
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        q.remove(2);
-        q.add(4);
 
+        Game game = new Game();
+
+        game.start();
+        do {
+            game.makeMove();
+        } while (game.status != Game.GameStatus.END);
+        int winner;
+        winner = game.getWinner();
+        System.out.println(winner);
     }
 }

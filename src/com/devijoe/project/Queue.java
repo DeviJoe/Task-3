@@ -1,5 +1,7 @@
 package com.devijoe.project;
 
+import java.util.List;
+
 public class Queue<T> {
 
     /**
@@ -21,11 +23,11 @@ public class Queue<T> {
     }
 
     // Первый элемент очереди
-    private transient Node head = null;
+    private Node head = null;
     // Последний элемент очереди
-    private transient Node tail = null;
+    private Node tail = null;
     // Длина очереди
-    private transient int size = 0;
+    private int size = 0;
 
     /**
      * Получение длины очереди
@@ -123,6 +125,24 @@ public class Queue<T> {
      */
     public T peek() {
         return head.value;
+    }
+
+    /**
+     * Проверка на пустоту
+     * @return
+     */
+    public boolean isEmpty() {
+        if (size==0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void addList(List<T> list) {
+        for (int i = 0; i < list.size(); i++) {
+            add(list.get(i));
+        }
     }
 
 }
